@@ -1,0 +1,25 @@
+(define (make-dictionary)
+	(let ((*dict '())
+		)
+
+	(define (add key value)
+		(set! *dict (append *dict (list (list key value)))))	
+
+	(define (search key)
+		(do ((d *dict (cdr d)))
+			((eq? (caar d) key) (cadr d))
+			)) 
+
+	(define (delete key)
+		(let ((dd '()))
+		(do ((d *dict (cdr d)))
+			((eq? (caar d) key) (set! *dict (append dd (cdr d))))
+			(set! dd (append (car d) dd))))) 
+
+	(define (dispatch msg)
+		(cond ((eq? msg 'add) add)
+			((eq? msg 'search) 'search)
+			((eq? msg 'delete) 'delete)
+			(else (display "make-dictionary : message not understood : ")(display msg)(newline)
+		)))	
+	dispatch))
