@@ -1,5 +1,7 @@
 ;; (load "dictionary.scm")
 
+;; NOTE a posterior is a list
+
 (define (make-prolog-posterior . p)
 	(let ((*posterior (if (not (null? p)) (car p) #f))
 		)
