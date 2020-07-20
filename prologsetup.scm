@@ -2,7 +2,7 @@
 
 (define (make-prolog-setup . parser)
 	(let ((*prologparser (if (null? parser)
-				prologparser
+				(make-prolog-parser)
 				(car parser)))
 		)
 

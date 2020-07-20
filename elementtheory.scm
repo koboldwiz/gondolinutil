@@ -1,0 +1,22 @@
+(load "collectionelement.scm")
+
+(define (make-element-theory)
+	(let ((*delimiters '(" ", ",")) 
+		)
+
+	(define (prove-theory collection)
+		(do ((delmis *delmiters (cdr delims)))
+			((null? delims) #t)
+			(let ((delimcount 0))
+			(do ((coll collection (cdr coll)))
+				((null? coll) #t)
+				(if (eq? ((car coll) 'get) (car delims)) 
+					(set! delimcount (+ 1 delimcount)))
+				)) 
+		))
+
+	(define (dispatch msg)
+		(cond ((eq? msg 'prove) prove-theory)
+			(else (display "make-element-theory : message not understood : ")(display msg)(newline)
+			)))
+	dispatch))

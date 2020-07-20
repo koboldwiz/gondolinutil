@@ -8,7 +8,7 @@
 		(append *rules (append (list rule) *rules)))	
 
 	(define (dispatch msg)
-		(cond ((eq? msg 'search) search)
+		(cond ((eq? msg 'add) add-rule)
 			(else (display "make-prolog-parser : message not understood : ")(display msg)(newline)
 		)))	
 	dispatch))

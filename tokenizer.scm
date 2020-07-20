@@ -1,5 +1,10 @@
-(define (make-tokenizer pretokens delimiter)
-	(let ((*tokens #f)
+(define (make-tokenizer pretokens delimiter) ;; pretokens is a make-collection
+	(let ((*tokens (make-collection))
+		)
+
+	(define (init-rec pretokens)
+		((*tokens 'add) (car pretokens))	
+		(set! pretokens (cdr pretokens))
 		)
 
 	(define (init)

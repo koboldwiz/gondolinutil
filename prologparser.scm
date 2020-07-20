@@ -3,7 +3,7 @@
 (load "prologposterior.scm")
 
 (define (make-prolog-parser)
-	(let ((*rules (make-dictionary))
+	(let ((*rules (make-dictionary)) ;; a list of rules, (pred . post) actor objects
 		)
 
 	(define (add-rule rule)
@@ -17,7 +17,7 @@
 			)
 		#f) 
 
-	;; a list multiple match
+	;; a list multiple match ('match method)
 	(define (apply-rule-predicate rule)
 		(do ((rules *rules (cdr rules)))
 			(((((((car rule) 'get)) 'match) ((car rules) 'get)))

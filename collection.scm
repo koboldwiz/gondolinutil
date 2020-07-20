@@ -1,14 +1,17 @@
 (load "collectionelement.scm")
 
 (define (make-collection . elementtheory)
-	(let ((*collection '())
+	(let ((*collection '()) ;; a list of make-collection-element's 
 		(*iteratorpointer 0)
 		)
 
-
 	;; prolog the elementtheory above for learning how to read elements
 	(define (prove-theory)
-
+		(if (not (null? elementtheory))
+		(let ((delimcount 0))
+			(do ((coll *collection (cdr coll)))
+				((eq? ((car coll) 'get)) ((elementtheory 'delimiter)) 
+		#f
 		)
 
 	;; object is made into a collection-element
