@@ -2,15 +2,15 @@
 	(let ((*raw e)
 		)
 
-	(define (get)
+	(define (get-element)
 		*raw)
 
-	(define (set! ee)
+	(define (set-element! ee)
 		(set! *raw ee))
 
 	(define (dispatch msg)
-		(cond ((eq? msg 'get) get)
-			((eq? msg 'set) set!)
+		(cond ((eq? msg 'get-element) get-element)
+			((eq? msg 'set-element!) set-element!)
 			(else (display "make-collection-element : message not understood : ")(display msg)(newline)
 			)))
 	dispatch))

@@ -8,14 +8,10 @@
 	;; prolog the elementtheory above for learning how to read elements
 	(define (prove-theory)
 		(if (not (null? elementtheory))
-		(let ((delimcount 0))
-			(do ((coll *collection (cdr coll)))
-				((eq? ((car coll) 'get)) ((elementtheory 'delimiter)) 
-		#f
-		)
+		((elementtheory 'prove) dispatch)))
 
 	;; object is made into a collection-element
-	(define (add object)
+	(define (add-element object)
 		(set! *collection (append *collection 
 				(list (make-collection-element object)))))
 
@@ -46,11 +42,21 @@
 	(define (delete object)
 		#f)
 	
+	;; FIXME get the elements out and store every object in a new list
+	(define (get-raw)
+	  )
+
+	;; returns elements list
+	(define (get-raw2)
+	  *collection)
+
 	(define (dispatch msg)
-		(cond ((eq? msg 'add) add)
+		(cond ((eq? msg 'add-element) add-element)
 			((eq? msg 'next) next)
 			((eq? msg 'search) search)
 			((eq? msg 'ref) ref)
+			((eq? msg 'get-raw-list-with-objects) get-raw)
+			((eq? msg 'get-raw-list-with-elements) get-raw2)
 			(else (display "make-collection : message not understood : ")(display msg)(newline)
 			)))
 
