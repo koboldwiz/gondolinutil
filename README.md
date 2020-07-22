@@ -14,8 +14,9 @@ language with AI (Artificial Intelligence) and adaptive systems. Both use
 supervised and unsupervised methods from machine learning. Note that
 on current machines (the year 2020) there is room for slowing down languages,
 in this case scsh scheme, with these methods whereas this might be unfeasible
-for a common end user programmer. 
+for a common end user programmer during his runtime. 
 The techniques wanting to be used are Markov strategies, Artificial Neural
-Networks and Theorem Provers, Prolog/Progol, among other things.
+Networks and Theorem Provers, Prolog/Progol, among other things. Note that
+the scheme language (a LISP dialect) is a AI programming language.
 
 This system library was made with Actors to provide for a real OOP experrience.
