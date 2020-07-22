@@ -5,7 +5,7 @@ classes into scsh scheme. The main candidates for this are the Standard
 Template Library from C++, Java Utility classes and things from Smalltalk.
 
 Examples are : streams and arrays from smalltalk, stringtokenizer from Java
-and iterators from C++ (STL.)
+and iterators, functors from C++ (STL.)
 
 There is also a focus to extend the above and the system and the scsh scheme
 language with AI (Artificial Intelligence) and adaptive systems. Both use
