@@ -1,4 +1,5 @@
-;; (load "dictionary.scm")
+(load "prologprecondition.scm")
+(load "prologposterior.scm")
 
 ;; NOTE a predicate is a list
 

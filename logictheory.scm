@@ -1,6 +1,7 @@
 (load "dictionary.scm")
 ;; NOTE : uses predicate and posterior of propositional logic
 (load "tppredicate.scm")
+(load "tpprecondition.scm")
 (load "tpposterior.scm")
 
 (define (make-logic-theory)
@@ -10,7 +11,7 @@
 
 	(define (enter-validities)
 		;; FIXME fill in variable objects
-		((*validities 'add) (list (make-theorem-prover-predicate)
+		((*validities 'add) (list (make-theorem-prover-precondition)
 					(make-theorem-prover-posterior)))	
 		)
 

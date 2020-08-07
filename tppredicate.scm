@@ -1,4 +1,5 @@
-;; (load "dictionary.scm")
+(load "tpprecondition.scm")
+(load "tpposterior.scm")
 
 ;; NOTE a predicate is a list
 ;; FIXME : add .left .right .middle .X methods
