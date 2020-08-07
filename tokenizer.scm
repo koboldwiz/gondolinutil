@@ -1,5 +1,8 @@
-(define (make-tokenizer pretokens delimiter) ;; pretokens is a make-collection
-	(let ((*tokens (make-collection))
+(define (make-tokenizer pretokens delimiter . elementtheory) 
+	;; pretokens is a collection
+	(let ((*tokens (if (null? elementtheory)
+			(make-collection)
+			(make-collection (car elementtheory))))
 		)
 
 	(define (init-rec pretokens)

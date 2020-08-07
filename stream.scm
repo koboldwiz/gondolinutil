@@ -3,6 +3,7 @@
 		(*iterator (make-collection-iterator *collection))
 		)
 
+	;; FIXME rewind
 	(define (next)
 		(let ((n ((*iterator 'next))))
 		(if n n (and ((*iterator 'rewind)) ((*itertor 'next))))

@@ -1,8 +1,9 @@
 ;; (load "dictionary.scm")
 
 ;; NOTE a predicate is a list
+;; FIXME : add .left .right .middle .X methods
 
-(define (make-prolog-predicate . p)
+(define (make-theorem-prover-predicate . p)
 	(let ((*predicate (if (not (null? p)) (car p) #f)) ;; a list of pred rules, a list of predicate items
 		)
 
@@ -26,6 +27,6 @@
 		(cond ((eq? msg 'set) set-predicate)
 			((eq? msg 'get) get)
 			((eq? msg 'match) match)
-			(else (display "make-prolog-predicate : message not understood : ")(display msg)(newline)
+			(else (display "make-theorem-prover-predicate : message not understood : ")(display msg)(newline)
 		)))	
 	dispatch))

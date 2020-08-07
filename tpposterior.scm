@@ -2,7 +2,7 @@
 
 ;; NOTE a posterior is a list
 
-(define (make-prolog-posterior . p)
+(define (make-theorem-prover-posterior . p)
 	(let ((*posterior (if (not (null? p)) (car p) #f))
 		)
 
@@ -15,6 +15,6 @@
 	(define (dispatch msg)
 		(cond ((eq? msg 'set) set-posterior)
 			((eq? msg 'get) get)
-			(else (display "make-prolog-posterior : message not understood : ")(display msg)(newline)
+			(else (display "make-theorem-prover-posterior : message not understood : ")(display msg)(newline)
 		)))	
 	dispatch))

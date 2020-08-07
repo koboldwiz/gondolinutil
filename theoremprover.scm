@@ -9,6 +9,6 @@
 
 	(define (dispatch msg)
 		(cond ((eq? msg 'add) add-rule)
-			(else (display "make-prolog-parser : message not understood : ")(display msg)(newline)
+			(else (display "make-theorem-prover : message not understood : ")(display msg)(newline)
 		)))	
 	dispatch))

@@ -1,17 +1,18 @@
-(load "collectionelement.scm")
+
+;; FIXME also make this for streams
 
 (define (make-element-theory)
 	(let ((*delimiters '(" ", ",")) 
 		)
 
 	(define (prove-theory collection)
-		(do ((delmis *delmiters (cdr delims)))
-			((null? delims) #t)
-			(let ((delimcount 0))
+		(do ((delimiters *delmiters (cdr delimiters)))
+			((null? delimiters) #t)
+			(let ((delimiter-count 0))
 			(do ((coll collection (cdr coll)))
 				((null? coll) #t)
-				(if (eq? ((car coll) 'get) (car delims)) 
-					(set! delimcount (+ 1 delimcount)))
+				(if (eq? ((car coll) 'get) (car delimiters)) 
+					(set! delimiter-count (+ 1 delimiter-count)))
 				)) 
 		))
 
