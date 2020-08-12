@@ -18,17 +18,20 @@
 	(define (match rulep) ;; rulep is a predicate itself 
 		(let ((p #f)
 			(prolongedprecondition (car ((*predicate 'get)))))
-		(do ((pp rulep (cdr pp)))
+		(do ((pp (car ((rulep 'get))) (cdr pp)))
 			((if (null? pp) 
 				#f
 				(if (eq? p #t) 
 					#t
 					#f)))
-			(if (eq? (car pp) (car prolongedprecondition))
+			(if (and (eq? (((car pp)'typename)) 
+				      (((car prolongedprecondition) 'typename)))
+				(eq? (((((car pp) 'key)) 'get)) 
+					(((((car prolongedprecondition)) 'key)) 'get)))
+				(if (null? (cdr prolongedprecondition))
+					(set! p #t))
 				(set! prolongedprecondition (cdr prolongedprecondition))
-				(if (null? (cdr pp))
-					(set! p #t))))
-		)) 
+				)))) 
 
 	(define (dispatch msg)
 		(cond ((eq? msg 'set) set-predicate)
