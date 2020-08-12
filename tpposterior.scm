@@ -1,6 +1,4 @@
-;; (load "dictionary.scm")
-
-;; NOTE a posterior is a list
+;; NOTE a posterior is a list of tppredicateitems
 
 (define (make-theorem-prover-posterior . p)
 	(let ((*posterior (if (not (null? p)) (car p) #f))

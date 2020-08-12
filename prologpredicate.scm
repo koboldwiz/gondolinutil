@@ -13,6 +13,8 @@
 	(define (get)
 		*predicate)
 
+
+	;; FIXME :
 	(define (match rulep) ;; rulep is a predicate (list of pred elements) 
 		(let ((p #f)
 			(prolongedpredicate *predicate))

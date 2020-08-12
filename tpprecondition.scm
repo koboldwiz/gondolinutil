@@ -1,20 +1,21 @@
-;; (load "dictionary.scm")
+(load "tppredicateitem.scm")
 
-;; NOTE a precondition is a list
+;; NOTE a precondition is a list of tppredicateitems
 
 (define (make-theorem-prover-precondition . p)
-	(let ((*precondition (if (not (null? p)) (car p) #f)) ;; a list of pred rules, a list of precondition items
+	;; a list of predicate items
+	(let ((*precondition (if (not (null? p)) (car p) #f))
 		)
 
 	(define (set-precondition p)
 		(set! *precondition p))	
 
-	(define (get)
+	(define (get-precondition)
 		*precondition)
 
 	(define (dispatch msg)
 		(cond ((eq? msg 'set) set-precondition)
-			((eq? msg 'get) get)
+			((eq? msg 'get) get-precondition)
 			(else (display "make-theorem-prover-precondition : message not understood : ")(display msg)(newline)
 		)))	
 	dispatch))

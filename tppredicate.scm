@@ -5,7 +5,8 @@
 ;; FIXME : add .left .right .middle .X methods
 
 (define (make-theorem-prover-predicate . p)
-	(let ((*predicate (if (not (null? p)) (car p) #f)) ;; a list of pred rules, a list of predicate items
+	;; a cons cell of tpprecondition and tpposterior 
+	(let ((*predicate (if (not (null? p)) (car p) #f))
 		)
 
 	(define (set-predicate p)
@@ -14,14 +15,19 @@
 	(define (get)
 		*predicate)
 
-	(define (match rulep) ;; rulep is a predicate (list of pred elements) 
+	(define (match rulep) ;; rulep is a predicate itself 
 		(let ((p #f)
-			(prolongedpredicate *predicate))
+			(prolongedprecondition (car ((*predicate 'get)))))
 		(do ((pp rulep (cdr pp)))
-			((eq? p #t) #t)
-			(if (and (eq? (car pp) (car prolongedpredicate))
-				(null? (cdr pp)))
-				(set! p #t)))
+			((if (null? pp) 
+				#f
+				(if (eq? p #t) 
+					#t
+					#f)))
+			(if (eq? (car pp) (car prolongedprecondition))
+				(set! prolongedprecondition (cdr prolongedprecondition))
+				(if (null? (cdr pp))
+					(set! p #t))))
 		)) 
 
 	(define (dispatch msg)
