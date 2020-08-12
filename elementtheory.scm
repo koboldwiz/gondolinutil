@@ -24,7 +24,8 @@
 	;; this is the simplest sampler based on the count of the delimiters
 	;; stored in *delimiters
 	;; NOTE : a hash with cache can be used or a sampler such as
-	;;        Metropolis-Hastings algorithm
+	;;        Metropolis-Hastings algorithm then modulus over the collection
+	;;	  length
 	(define (prove-theory collection)
 		(let ((l '()))
 		(do ((delimiters *delimiters (cdr delimiters)))
