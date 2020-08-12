@@ -2,7 +2,7 @@
 ;; FIXME also make this for streams
 
 (define (make-element-theory)
-	(let ((*delimiters '((string #\newline)  ;; FIXME \r\n delimiter (win32)
+	(let ((*delimiters '((string #\newline) ;; FIXME \r\n win32 
 				(string #\tab) ;;FIXME
 				" " 
 				",")) 
@@ -44,5 +44,4 @@
 		(cond ((eq? msg 'prove) prove-theory)
 			(else (display "make-element-theory : message not understood : ")(display msg)(newline)
 			)))
-
 	dispatch))

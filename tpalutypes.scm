@@ -9,6 +9,10 @@
 			'complex
 			'symbol
 			'boolean
+			'inductive
+			'variable
+			'iterator
+			'device
 			;; add to this list for extending the type theory
 			)))
 
