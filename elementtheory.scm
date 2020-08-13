@@ -1,5 +1,6 @@
 
 ;; FIXME also make this for streams
+;; FIXME also use decision theory
 
 (define (make-element-theory)
 	(let ((*delimiters '((string #\newline) ;; FIXME \r\n win32 
@@ -29,7 +30,7 @@
 	(define (prove-theory collection)
 		(let ((l '()))
 		(do ((delimiters *delimiters (cdr delimiters)))
-			((null? delimiters) (argmax (reverse l)))
+			((null? delimiters) (list-ref *delimiters (argmax (reverse l)))) ;; returns delimiter
 			(let ((delimiter-count 0))
 			(do ((coll collection (cdr coll)))
 				((null? coll) (set! l 

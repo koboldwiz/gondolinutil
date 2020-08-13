@@ -33,12 +33,19 @@
 		*value)
 
 	;; for filling in a value into this predicate item
+	;; 
 	(define (fill-in-value value)
 		(let ((typelist ((make-theorem-prover-alu-types))))
 			(do ((typel typelist (cdr typel)))
-				((null? typel) #t)
-				(if ((typelist 'check) (car typel) value)
-					(set! typel '('())))))) 
+				((cond ((eq? (car typel) 'xyzzy) #t)
+					((null? typel) #f)))
+					
+				;; check if the typename exists, then match it
+				;; and set its value
+				(if (and ((typelist 'check-type-for-value) (car typel) value) (eq? (car typel (typename))))
+					(begin
+						((*value 'set) value)
+						(set! typel '('xyzzy 'xyzzy))))))) 
 
 	(define (dispatch msg)
 		(cond ((eq? msg 'typename) typename)

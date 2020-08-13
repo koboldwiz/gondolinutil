@@ -34,7 +34,8 @@
 	(define (number-value? value)
 		(number? value))	
 
-	(define (check type value)
+	;; checks if the type has a legal value
+	(define (check-type-for-value type value)
 		(cond ((and (native-type? type) (native-value? value))
 			#t)
 			((and (number-type? type) (number-value? value))
@@ -44,7 +45,7 @@
 	(define (dispatch msg)
 		(cond ((eq? msg 'get) get-alu-types)
 			((eq? msg 'types) get-alu-types)
-			((eq? msg 'check) check)
+			((eq? msg 'check-type-for-value) check-type-for-value)
 			(else (display "make-theorem-prover-alu-types : message not understood : ")(display msg)(newline)
 		)))	
 	dispatch))
