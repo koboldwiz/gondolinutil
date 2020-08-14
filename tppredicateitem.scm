@@ -32,7 +32,7 @@
 	(define (value)
 		*value)
 
-	(define (use-on predicate) ;; FIXME predicate or predicateitem
+	(define (use predicate) ;; FIXME predicate or predicateitem
 		;;FIXME
 		)
 
@@ -57,8 +57,7 @@
 			((eq? msg 'key) key)
 			((eq? msg 'value) value)
 
-			;;FIXME ((eq? msg 'use) use)
-			((eq? msg 'use-on) use-on)
+			((eq? msg 'use) use)
 
 			((eq? msg 'fill-in-value) fill-in-value)
 
