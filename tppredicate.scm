@@ -15,6 +15,10 @@
 	(define (get)
 		*predicate)
 
+	(define (reduce ruleset) ;; ruleset are distributions of predicates
+		;;FIXME
+		)
+
 	(define (match rulep) ;; rulep is a predicate itself 
 		(let ((p #f)
 			(prolongedprecondition (car ((*predicate 'get)))))
@@ -38,6 +42,7 @@
 		(cond ((eq? msg 'set) set-predicate)
 			((eq? msg 'get) get)
 			((eq? msg 'match) match)
+			((eq? msg 'reduce) reduce)
 			(else (display "make-theorem-prover-predicate : message not understood : ")(display msg)(newline)
 		)))	
 	dispatch))

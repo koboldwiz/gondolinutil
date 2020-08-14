@@ -1,6 +1,7 @@
 ;; alu stands for Arithmetic and Logical Unit
 (define (make-theorem-prover-alu-types)
 	(let ((*types (list 
+			'constant
 			'native
 			'array
 			'number
