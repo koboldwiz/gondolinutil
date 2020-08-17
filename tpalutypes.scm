@@ -3,9 +3,18 @@
 	(let ((*types (list 
 			'constant
 			'native
+			;; operators use prefix notation
+			'operator-and 
+			'operator-or
+			'operator-not
+			'function-declaration
+			'function-call
+			'math-operator-+
+			'math-operator-*
+			'math-operator-exp
+			'math-operator-pow
 			'array
 			'number
-			'function
 			'decimal
 			'complex
 			'symbol
@@ -27,6 +36,9 @@
 	(define (number-type? type)
 		(eq? type 'number))
 
+	(define (boolean-type? type)
+		(eq? type 'boolean))
+
 	;; value checks
 	(define (native-value? value)
 		;;FIXME
@@ -46,6 +58,8 @@
 	(define (dispatch msg)
 		(cond ((eq? msg 'get) get-alu-types)
 			((eq? msg 'types) get-alu-types)
+			((eq? msg 'number-type?) number-type?)
+			((eq? msg 'boolean-type?) boolean-type?)
 			((eq? msg 'check-type-for-value) check-type-for-value)
 			(else (display "make-theorem-prover-alu-types : message not understood : ")(display msg)(newline)
 		)))	

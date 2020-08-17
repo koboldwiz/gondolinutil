@@ -14,7 +14,7 @@
 	(define (dispatch msg)
 		(cond ((eq? msg 'get) get-alu-values)
 			((eq? msg 'values) get-alu-values)
-			((eq? msg 'empty) empty-value)
+			((eq? msg 'empty-value) empty-value)
 			(else (display "make-theorem-prover-alu-values : message not understood : ")(display msg)(newline)
 		)))	
 	dispatch))

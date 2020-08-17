@@ -1,1 +1,10 @@
 . utilities for scsh (http://scsh.net)
+
+Theorem Prover :
+----------------
+
+. logic theory is prefixed operators and in the same list its arguments, 
+for example : '('operator-and 3  #f) -> #f and 
+'(operator-not '('operator-and 'foo 'bar 'baz)) -> error not a number or boolean
+argument
+(where 3 has a 'number type and #f has a boolean type)
